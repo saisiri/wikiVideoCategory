@@ -1,0 +1,28 @@
+$body-bg: #FFEB3B;
+$brand-primary: #607D8B;
+
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+// set if you're also including font-awesome
+// $fa-font-path: "~font-awesome/fonts";
+
+// the ~ allows you to reference things in node_modules
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+html * {
+  font-weight: normal;
+}
+
+.channel-list-container {
+  text-align: center;
+  h1 {
+    color: #607D8B;
+  }
+  table {
+    cursor: pointer;
+    background-color: rgb(252, 252, 252);
+  }
+  thead {
+    background-color: $brand-primary;
+  }
+}

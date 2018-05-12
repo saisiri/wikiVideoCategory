@@ -3,49 +3,53 @@
 {% block title %}List of all channel patterns {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class="example-wrapper">
-    <h1>Channel patterns list </h1>
-    <table>
-        <thead>
-        <tr>
-            <th>
-                Pattern ID
-            </th>
-            <th>
-                Needle
-            </th>
-            <th>
-                Pattern
-            </th>
-            <th>
-                Channel ID
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for channel_pattern in channel_patterns %}
-            <tr>
-                <th>
-                    {{ channel_pattern.id }}
-                </th>
-                <th>
-                    {{ channel_pattern.needle }}
-                </th>
-                <th>
-                    {{ channel_pattern.pattern }}
-                </th>
-                <th>
-                    {{ channel_pattern.channelid }}
-                </th>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container-fluid channel-list-container">
 
-</div>
+
+        <div class="container">
+            <h1>Channel patterns list <a class="btn btn-primary" href="/channel_pattern/add" role="button">Add new channel pattern</a></h1>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        Pattern ID
+                    </th>
+                    <th scope="col">
+                        Needle
+                    </th>
+                    <th scope="col">
+                        Pattern
+                    </th>
+                    <th scope="col">
+                        Channel ID
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for channel_pattern in channel_patterns %}
+                    <tr scope="row">
+                        <th>
+                            {{ channel_pattern.id }}
+                        </th>
+                        <th>
+                            {{ channel_pattern.needle }}
+                        </th>
+                        <th>
+                            {{ channel_pattern.pattern }}
+                        </th>
+                        <th>
+                            {{ channel_pattern.channelid }}
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 {% endblock %}
