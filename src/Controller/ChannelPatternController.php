@@ -4,18 +4,23 @@ namespace App\Controller;
 
 use App\Entity\ChannelPattern;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Flex\Response;
 
 class ChannelPatternController extends Controller
 {
     /**
-     * @Route("/channel_pattern", name="channel_pattern")
+     * @Route("/channel_pattern/list", name="channel_pattern_list")
+     * @Method({"GET"})
      */
-    public function index()
+    public function show_list()
     {
-        return $this->render('channel_pattern/index.html.twig', [
-            'controller_name' => 'ChannelPatternController',
+        $channel_patterns = $this->getDoctrine()
+            ->getRepository(ChannelPattern::class)
+            ->findAll();
+        return $this->render('channel_pattern/list.html.twig', [
+            'channel_patterns' => $channel_patterns,
         ]);
     }
 
@@ -34,10 +39,6 @@ class ChannelPatternController extends Controller
             );
         }
 
-        //return new Response('Check out this great product: '.$channel_pattern->getNeedle());
-
-        // or render a template
-        // in the template, print things with {{ product.name }}
         return $this->render('channel_pattern/show.html.twig', ['id' => $channel_pattern->getId(),
             'needle' => $channel_pattern->getNeedle(), 'pattern' => $channel_pattern->getPattern(),
             'channel_id' => $channel_pattern->getChannelId()]);
