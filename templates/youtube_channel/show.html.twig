@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YouTube channel information - {{ youtube_username }} {% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        <h2>YouTube channel information</h2>
+        <h4>Channel ID: {{ channel_id }} </h4>
+        <h4>YouTube username: {{ youtube_username }} </h4>
+        <h4>Common name: {{ common_name }} </h4>
+        <h4>List of channel patterns</h4>
+        <ul class="list-group">
+            {% for channel_pattern in channel_patterns %}
+            <li class="list-group-item"> Pattern ID: {{ channel_pattern.id }} - Needle {{ channel_pattern.needle }} - Pattern {{ channel_pattern.pattern }}</li>
+
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

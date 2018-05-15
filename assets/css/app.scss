@@ -11,18 +11,17 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 html * {
   font-weight: normal;
+  text-align: center;
 }
 
-.channel-list-container {
-  text-align: center;
-  h1 {
-    color: #607D8B;
-  }
-  table {
-    cursor: pointer;
-    background-color: rgb(252, 252, 252);
-  }
-  thead {
-    background-color: $brand-primary;
-  }
+h1 {
+  color: #607D8B;
 }
+table {
+  cursor: pointer;
+  background-color: rgb(252, 252, 252);
+}
+thead {
+  background-color: $brand-primary;
+}
+
