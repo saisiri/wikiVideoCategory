@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of all youtube channels {% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container-fluid youtube-channel-list-container">
+
+
+        <div class="container">
+            <h1>YouTube channels list <a class="btn btn-primary" href="/youtube_channel/add" role="button">Add new youtube channel </a></h1>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        Channel ID
+                    </th>
+                    <th scope="col">
+                        Common Name
+                    </th>
+                    <th scope="col">
+                        YouTube Username
+                    </th>
+                    <th>
+                        See details
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for youtube_channel in youtube_channels %}
+                    <tr scope="row">
+                        <th>
+                            {{ youtube_channel.channelid }}
+                        </th>
+                        <th>
+                            {{ youtube_channel.commonname }}
+                        </th>
+                        <th>
+                            {{ youtube_channel.youtubeusername }}
+                        </th>
+                        <th>
+                            <a class="btn btn-primary" href="/youtube_channel/id/{{ youtube_channel.channelid }}" role="button">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </a>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

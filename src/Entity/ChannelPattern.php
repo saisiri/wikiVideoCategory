@@ -28,9 +28,10 @@ class ChannelPattern
     private $pattern;
 
     /**
-     * @ORM\Column(type="string", length=220, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\YoutubeChannel")
+     * @ORM\JoinColumn(name="channel_id", referencedColumnName="channel_id")
      */
-    private $channel_id;
+    private $youtubeChannel;
 
     public function getId()
     {
@@ -61,14 +62,14 @@ class ChannelPattern
         return $this;
     }
 
-    public function getChannelId(): ?string
+    public function getYoutubeChannel(): ?YoutubeChannel
     {
-        return $this->channel_id;
+        return $this->youtubeChannel;
     }
 
-    public function setChannelId(?string $channel_id): self
+    public function setYoutubeChannel(?YoutubeChannel $youtubeChannel): self
     {
-        $this->channel_id = $channel_id;
+        $this->youtubeChannel = $youtubeChannel;
 
         return $this;
     }
